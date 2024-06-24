@@ -1,0 +1,38 @@
+employees
+-
+emp_no PK SERIAL FK >- salaries.emp_no
+emp_title_id PK char(5) FK >- titles.title_id
+birth_date date
+first_name char(30)
+Last_name char(30)
+sex varchar(1)
+hire_date date
+
+titles
+-
+title_id PK char(5)
+title char(30)
+
+departments
+----
+dept_no PK char(4)
+dept_name char(30)
+
+salaries
+------------
+emp_no PK int
+salary int
+
+dept_manager
+----
+dept_no PK char(4) FK >- departments.dept_no
+emp_no PK int FK >- employees.emp_no
+
+dept_emp
+----
+emp_no PK int FK >- employees.emp_no
+dept_no PK char(4) FK >- departments.dept_no
+dept_emp
+----
+emp_no PK int FK >- employees.emp_no
+dept_no varchar(4) FK >- departments.dept_no
